@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Pollution Awareness | Class 9 IT Project</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(180deg,#0b0f14,#1c2b36,#0b0f14);
+    color:#ecf0f1;
+    overflow-x:hidden;
+}
+
+/* SMOKE ANIMATION */
+.smoke{
+    position:fixed;
+    top:0;
+    left:0;
+    width:200%;
+    height:200%;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 40%),
+      radial-gradient(circle at 70% 30%, rgba(255,255,255,0.04), transparent 45%),
+      radial-gradient(circle at 40% 80%, rgba(255,255,255,0.03), transparent 50%);
+    animation:smokeMove 60s linear infinite;
+    pointer-events:none;
+    z-index:0;
+}
+
+@keyframes smokeMove{
+    from{transform:translateX(0) translateY(0);}
+    to{transform:translateX(-50%) translateY(-50%);}
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:70px 20px;
+    position:relative;
+    z-index:1;
+}
+
+header h1{
+    font-size:2.7em;
+    color:#2ecc71;
+}
+
+header p{
+    margin-top:10px;
+    opacity:0.85;
+}
+
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    background:#000;
+    padding:12px;
+    text-align:center;
+    z-index:2;
+}
+
+nav a{
+    color:#2ecc71;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:#fff;
+}
+
+/* SECTIONS */
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 20px;
+    position:relative;
+    z-index:1;
+}
+
+/* CARDS */
+.card{
+    background:rgba(0,0,0,0.65);
+    border-radius:15px;
+    padding:30px;
+    margin-bottom:40px;
+    box-shadow:0 0 25px rgba(0,0,0,0.7);
+    transform:translateY(40px);
+    opacity:0;
+    transition:1s ease;
+}
+
+.card.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.card h2{
+    color:#2ecc71;
+    margin-bottom:15px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin:10px 0;
+}
+
+/* MODEL BOX */
+.model{
+    border-left:6px solid #2ecc71;
+    background:rgba(46,204,113,0.08);
+}
+
+/* FOOTER */
+footer{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    font-size:0.9em;
+}
+
+footer span{
+    color:#2ecc71;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    header h1{font-size:2em;}
+    nav a{display:inline-block;margin:8px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="smoke"></div>
+
+<header>
+    <h1>🌍 Air Pollution Awareness</h1>
+    <p>Class 9 | IT Project – DIY Air Filter Model</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#causes">Causes</a>
+    <a href="#effects">Effects</a>
+    <a href="#model">DIY Model</a>
+    <a href="#solutions">Solutions</a>
+</nav>
+
+<section id="about">
+    <div class="card">
+        <h2>🌫️ What is Air Pollution?</h2>
+        <p>
+            Air pollution occurs when harmful gases, smoke and dust particles mix with clean air,
+            making it unsafe for living beings.
+        </p>
+    </div>
+</section>
+
+<section id="causes">
+    <div class="card">
+        <h2>❌ Causes of Air Pollution</h2>
+        <ul>
+            <li>Vehicle smoke</li>
+            <li>Industrial gases</li>
+            <li>Burning plastic & garbage</li>
+            <li>Construction dust</li>
+        </ul>
+    </div>
+</section>
+
+<section id="effects">
+    <div class="card">
+        <h2>⚠️ Effects of Air Pollution</h2>
+        <ul>
+            <li>Asthma & breathing problems</li>
+            <li>Lung and heart diseases</li>
+            <li>Global warming</li>
+            <li>Climate change</li>
+        </ul>
+    </div>
+</section>
+
+<section id="model">
+    <div class="card model">
+        <h2>🧪 DIY Air Filter Model</h2>
+        <p><b>Materials Used:</b></p>
+        <ul>
+            <li>Plastic bottle</li>
+            <li>Cotton</li>
+            <li>Charcoal</li>
+            <li>Sand</li>
+            <li>Small fan</li>
+        </ul>
+        <p>
+            <b>Working:</b> Polluted air passes through layers which trap dust and harmful particles,
+            allowing cleaner air to pass out.
+        </p>
+        <p><i>This model is for awareness only.</i></p>
+    </div>
+</section>
+
+<section id="solutions">
+    <div class="card">
+        <h2>🌱 Solutions</h2>
+        <ul>
+            <li>Plant more trees</li>
+            <li>Use public transport</li>
+            <li>Avoid burning waste</li>
+            <li>Use renewable energy</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <p>
+        Made by <span>Aman</span> | Class 9 <br>
+        Air Pollution Awareness – IT Project <br>
+        Guided by <b>Jagjit Sir</b>
+    </p>
+</footer>
+
+<script>
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+    cards.forEach(card=>{
+        const top=card.getBoundingClientRect().top;
+        if(top<window.innerHeight-100){
+            card.classList.add('show');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
